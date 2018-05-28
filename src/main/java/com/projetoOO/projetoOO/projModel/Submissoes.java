@@ -1,6 +1,7 @@
-package com.projetoOO.projetoOO;
+package com.projetoOO.projetoOO.projModel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -11,23 +12,24 @@ public class Submissoes {
     private Long id;
 
     @Column(nullable = false)
+    private Long even_id;
+
+    @Column(nullable = false)
+    private Long usua_id;
+
+    @Column(nullable = false)
     private String nome_art;
+
+	@Column(nullable = false)
+    private String resumo_art;
 	
 	@Column(nullable = false)
-    private String resumo;
+    private Date dt_submissao;
 	
 	@Column(nullable = false)
-    private Date data_sub;
-	
-	@Column(nullable = false)
-    private String password;
+    private String anexo_art;
 	
     
-    @ManyToMany
-    @JoinTable(name="user",
-            joinColumns = @JoinColumn(name = "Submissoes_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id")
-            )
     private List<Submissoes> submissoes;
 
     public List<Submissoes> getSubmissoes() {
@@ -46,23 +48,52 @@ public class Submissoes {
         this.id = id;
     }
 
-    public String getNome_art() {
+    public Long getEven_Id() {
+        return even_id;
+    }
+
+    public void setEven_Id(Long id) {
+        this.even_id = id;
+    }
+
+    public Long getUsua_Id() {
+        return usua_id;
+    }
+
+    public void setUsua_Id(Long id) {
+        this.usua_id = id;
+    }
+
+    public String getNome_Art() {
         return nome_art;
     }
 
-    public void setNome_art(String nome_art) {
-        this.nome_art = nome_art;
-    }
-	
-	public void setResumo(String resumo) {
-        this.resumo = resumo;
-    }
-    
-	public void setPassword(String password) {
-        this.password = password;
+    public void setNome_Art(String nomeArt) {
+        this.nome_art = nomeArt;
     }
 
-	public void setData_sub(Date data_sub) {
-        this.data_sub = data_sub;
-    }	
+    public String getResumo_Art() {
+        return resumo_art;
+    }
+
+    public void setResumo_Art(String resumoArt) {
+        this.resumo_art = resumoArt;
+    }
+
+    public Date getDt_Submissao() {
+        return dt_submissao;
+    }
+
+    public void setDt_Submissao(Date dtSubmissao) {
+        this.dt_submissao = dtSubmissao;
+    }
+
+    public String getAnexo_Art() {
+        return anexo_art;
+    }
+
+    public void setAnexo_Art(String anexoArt) {
+        this.resumo_art = anexoArt;
+    }
+
 }

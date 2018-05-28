@@ -1,6 +1,7 @@
-package com.projetoOO.projetoOO;
+package com.projetoOO.projetoOO.projModel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -11,14 +12,25 @@ public class Eventos {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String nome_evento;
 
-    
+    @Column(nullable = false)
+    private Long usua_id;
+
+    @Column(nullable = false)
+    private Date dt_evento;
+
+    @Column(nullable = false)
+    private Date dt_iinscr;
+
+    @Column(nullable = false)
+    private Date dt_finscr;
+
     @ManyToMany
-    @JoinTable(name="user_role",
-            joinColumns = @JoinColumn(name = "eventos_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id")
-            )
+    @JoinTable(name="even_id",
+            joinColumns = @JoinColumn(name = "even_id", referencedColumnName = "id")
+    )
+
     private List<Eventos> eventos;
 
     public List<Eventos> getEventos() {
@@ -37,13 +49,41 @@ public class Eventos {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome_Evento() {
+        return nome_evento;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome_Evento(String nome) {
+        this.nome_evento = nome;
     }
 
-    
+    public Long getUsua_Id() {
+        return usua_id;
+    }
+
+    public void setUsua_Id(Long id) {
+        this.usua_id = id;
+    }
+
+    public Date getDt_Evento() {
+        return dt_evento;
+    }
+
+    public void setDt_Evento(Date dtEvento) { this.dt_evento = dtEvento; }
+
+    public Date getDt_Iinscr() {
+        return dt_iinscr;
+    }
+
+    public void setDt_Iinscr(Date dtIinscr) {
+        this.dt_iinscr = dtIinscr;
+    }
+
+    public Date getDt_Finscr() {
+        return dt_finscr;
+    }
+
+    public void setDt_Finscr(Date dtFinscr) {
+        this.dt_finscr = dtFinscr;
+    }
 }
