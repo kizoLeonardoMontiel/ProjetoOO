@@ -20,13 +20,13 @@ public class Submissoes {
     @Column(nullable = false)
     private String nome_art;
 
-	@Column(nullable = false)
+    @Column(nullable = false)
     private String resumo_art;
 	
-	@Column(nullable = false)
+    @Column(nullable = false)
     private Date dt_submissao;
 	
-	@Column(nullable = false)
+    @Column(nullable = false)
     private String anexo_art;
 	
     
