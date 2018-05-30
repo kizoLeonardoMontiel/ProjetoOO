@@ -27,7 +27,7 @@ public class Eventos {
     private Date dt_finscr;
 
     @ManyToMany
-    @JoinTable(name="even_id",
+    @JoinTable(name="evento",
             joinColumns = @JoinColumn(name = "even_id", referencedColumnName = "id")
     )
 

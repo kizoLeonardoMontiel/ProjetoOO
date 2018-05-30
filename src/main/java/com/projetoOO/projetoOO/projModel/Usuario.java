@@ -23,7 +23,7 @@ public class Usuario {
     private String password;
 
     @ManyToMany
-    @JoinTable(name="usua_id",
+    @JoinTable(name="usuario",
             joinColumns = @JoinColumn(name = "usua_id", referencedColumnName = "id")
     )
 
