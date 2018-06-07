@@ -28,17 +28,6 @@ public class Submissoes {
 	
     @Column(nullable = false)
     private String anexo_art;
-	
-    
-    private List<Submissoes> submissoes;
-
-    public List<Submissoes> getSubmissoes() {
-        return submissoes;
-    }
-
-    public void setSubmissoes(List<Submissoes> submissoes) {
-        this.submissoes = submissoes;
-    }
 
     public Long getId() {
         return id;
