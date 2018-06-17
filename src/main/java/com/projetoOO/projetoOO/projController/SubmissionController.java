@@ -1,45 +1,68 @@
 package com.projetoOO.projetoOO.projController;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.projetoOO.projetoOO.projModel.Eventos;
+import com.projetoOO.projetoOO.projModel.Submissoes;
+import com.projetoOO.projetoOO.projModel.Usuario;
+import com.projetoOO.projetoOO.projRepository.EventosRepository;
+import com.projetoOO.projetoOO.projRepository.SubmissoesRepository;
 
 @Controller
 public class SubmissionController {
-	@RequestMapping("/submissoes")
-	public String submissoesRequest() {
+	@Autowired
+	public SubmissoesRepository submissionRepo;
+	@Autowired
+	public EventosRepository eventRepo;
+	
+	@RequestMapping(value="/submissoes",method=RequestMethod.GET)
+	public String submissoesGet() {
 		return "submissoes/submissoes";
 	}
-	
-	@GetMapping("/submissoes")
-	public String submissoesGet() {
-		return null;
+		
+	@RequestMapping(value="/submissoes/{ID}",method=RequestMethod.GET)
+	public ModelAndView submissoesIDGet(@PathVariable("id") long id) {
+		Submissoes submission = submissionRepo.findById(id);
+		ModelAndView m = new ModelAndView("submissoes/mostraSubmissoes");
+		m.addObject("submissoes",submission);
+		return m;
+	}
+
+	@RequestMapping(value="/submissoes/{ID}",method=RequestMethod.POST)
+	public String submissoesIDPost(@PathVariable("id") long id) {
+		Submissoes submission = submissionRepo.findById(id);
+		submissionRepo.save(submission);
+		return "redirect:/{id}";
 	}
 	
-	@GetMapping("/submissoes/{ID}")
-	public String submissoesIDGet() {
-		return null;
+	
+	@RequestMapping(value="/submissoes/{ID}/delete",method=RequestMethod.GET)
+	public ModelAndView submissoesIDDelete(@PathVariable("id") long id) {
+		Submissoes submission = submissionRepo.findById(id);
+		ModelAndView m = new ModelAndView("submissoes/deletaSubmissao");
+		m.addObject("submissoes",submission);
+		return m;
 	}
 	
-	@PostMapping("/submissoes/{ID}")
-	public String submissoesIDPost() {
-		return null;
+	@RequestMapping(value="/submissoes/evento/{idEvento}",method=RequestMethod.GET)
+	public ModelAndView usuarioIDGet(@PathVariable("idEvento") long idEvento) {
+		Eventos event = eventRepo.findById(idEvento);
+		ModelAndView m = new ModelAndView("submissoes/evento/submeteEvento");
+		m.addObject("usuario",event);
+		return m;
 	}
 	
-	@PostMapping("/submissoes/{ID}/delete")
-	public String submissoesIDDeletePost() {
-		return null;
+	@RequestMapping(value="/submissoes/evento/{idEvento}",method=RequestMethod.POST)
+	public String usuarioIDPost(@PathVariable("idEvento") long idEvento) {
+		Eventos event = eventRepo.findById(idEvento);
+		eventRepo.save(event);
+		return "redirect:/submissoes";
 	}
 	
-	@GetMapping("/submissoes/evento/{IDEvento}")
-	public String submissoesEventoIDGet() {
-		return null;
-	}
-	
-	@PostMapping("/submissoes/evento/{IDEvento}")
-	public String submissoesEventoIDPost() {
-		return null;
-	}
 
 }

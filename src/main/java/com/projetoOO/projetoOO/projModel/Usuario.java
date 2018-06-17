@@ -1,7 +1,15 @@
 package com.projetoOO.projetoOO.projModel;
 
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuario {
@@ -9,7 +17,10 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @Column(nullable = false)
+    private Eventos evento;
+    
     @Column(nullable = false)
     private String nome;
 
@@ -29,14 +40,19 @@ public class Usuario {
 
     private List<Usuario> usuario;
 
-    public List<Usuario> getUsuatio() {
+    public List<Usuario> getUsuario() {
         return usuario;
     }
 
     public void setUsuario(List<Usuario> usuario) {
         this.usuario = usuario;
     }
-
+    public Eventos getEvent() {
+    	return evento;
+    }
+    public void setEvento(Eventos evento) {
+    	this.evento = evento;
+    }
     public Long getId() {
         return id;
     }

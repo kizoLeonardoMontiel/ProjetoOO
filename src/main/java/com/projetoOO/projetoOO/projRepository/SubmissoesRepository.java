@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SubmissoesRepository extends CrudRepository<Submissoes, Long> {
-
+	Submissoes findById(long id);
 }
