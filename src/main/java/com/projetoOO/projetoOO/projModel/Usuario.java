@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
+import com.projetoOO.projetoOO.projModel.Eventos;
 @Entity
 public class Usuario {
 
@@ -19,7 +19,7 @@ public class Usuario {
     private Long id;
     
     @Column(nullable = false)
-    private Eventos evento;
+    private String evento;
     
     @Column(nullable = false)
     private String nome;
@@ -46,12 +46,6 @@ public class Usuario {
 
     public void setUsuario(List<Usuario> usuario) {
         this.usuario = usuario;
-    }
-    public Eventos getEvent() {
-    	return evento;
-    }
-    public void setEvento(Eventos evento) {
-    	this.evento = evento;
     }
     public Long getId() {
         return id;

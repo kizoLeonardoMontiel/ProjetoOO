@@ -50,15 +50,15 @@ public class SubmissionController {
 	}
 	
 	@RequestMapping(value="/submissoes/evento/{idEvento}",method=RequestMethod.GET)
-	public ModelAndView usuarioIDGet(@PathVariable("idEvento") long idEvento) {
+	public ModelAndView submissoesEventoIDGet(@PathVariable("idEvento") long idEvento) {
 		Eventos event = eventRepo.findById(idEvento);
 		ModelAndView m = new ModelAndView("submissoes/evento/submeteEvento");
-		m.addObject("usuario",event);
+		m.addObject("event",event);
 		return m;
 	}
 	
 	@RequestMapping(value="/submissoes/evento/{idEvento}",method=RequestMethod.POST)
-	public String usuarioIDPost(@PathVariable("idEvento") long idEvento) {
+	public String submissoesEventoIDPost(@PathVariable("idEvento") long idEvento) {
 		Eventos event = eventRepo.findById(idEvento);
 		eventRepo.save(event);
 		return "redirect:/submissoes";

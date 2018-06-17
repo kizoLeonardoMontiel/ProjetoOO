@@ -18,6 +18,11 @@ public class UserController {
 	@Autowired
 	private UsuarioRepository userRepo;
 	
+	@RequestMapping(value="/usuario",method=RequestMethod.GET)
+	public String usuarioGet() {
+		return "usuario/usuario";
+	}
+	
 	@RequestMapping(value="/usuario/{ID}",method=RequestMethod.GET)
 	public ModelAndView usuarioIDGet(@PathVariable("id") long id) {
 		Usuario user = userRepo.findById(id);
