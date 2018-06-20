@@ -1,11 +1,12 @@
 package com.projetoOO.projetoOO.projModel;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Eventos {
+public class Eventos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

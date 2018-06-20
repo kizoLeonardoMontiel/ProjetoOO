@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-br"  xmlns:th="http://www.thymeleaf.org"><head>
   <title>Evento</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +33,7 @@
             <li><a href="#">Detalhes</a></li>
             <li><a href="#">Cadastro</a></li>
           </ul>
-        <li class="active" class="dropdown"><a href="../../templates/submissoes/submissoes.html"  th:href="@{/submissoes}" class="dropdown-toogle"
+        <li  class="dropdown"><a href="../../templates/submissoes/submissoes.html"  th:href="@{/submissoes}" class="dropdown-toogle"
                                 data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
 
         <ul class="dropdown-menu" role="menu">
@@ -43,7 +42,7 @@
         </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../../templates/login/login.html"  th:href="@{/login}><span class="glyphicon glyphicon-log-in"  class="active"></span> Login</a></li>
+        <li><a href="../../templates/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
       </ul>
     </div>
   </div>

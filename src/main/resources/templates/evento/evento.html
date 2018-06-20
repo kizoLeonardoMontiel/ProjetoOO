@@ -34,25 +34,51 @@
             <li><a href="#">Detalhes</a></li>
             <li><a href="#">Cadastro</a></li>
           </ul>
+        <li class="dropdown"><a href="../../templates/submissoes/submissoes.html"  th:href="@{/submissoes}" class="dropdown-toogle"
+                                               data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
+
+
           <ul class="dropdown-menu" role="menu">
             <li><a href="../../templates/submissoes/evento/submeteEvento.html" th:href="@{/submeteEvento}"> Novo Artigo</a></li>
             <li><a href="#">Buscar Artigos</a></li>
           </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="../../templates/login/login.html"  th:href="@{/login}><span class="glyphicon glyphicon-log-in"  class="active"></span> Login</a></li>
+          <li><a href="../../templates/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-	<div>
+<th:block th:include="mensagemValidacao"></th:block>
+<div class="container">
 
-   
+  <form class="container" method="post">
 
-	</div>
+    <div class="tab-content">
+      <div class="input-field col s6">
+      Nome: <input type="text" value="" name="nome"/>
+      </div>
+      <div class="input-field col s6">
+      Local: <input type="text" value="" name="local"/>
+      </div>
+      <div class="input-field col s3">
+      Data: <input type="date" value="" name="data"/>
+      </div>
+      <div class="input-field col s3">
+      Horario: <input type="time" value="" name="horario"/>
+      </div>
+    </div>
+    <button class="waves-effect waves-light btn" type="submit">Salvar</button>
 
-
-
+  </form>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
+
+
+
+
+
 </html>
