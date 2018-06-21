@@ -32,12 +32,19 @@
                 <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
                 <li><a href="/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
                 <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
-
+                    data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Detalhes</a></li>
-                        <li><a href="#">Cadastro</a></li>
-                    </ul>          <li><a href="/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
+                        <li><a href="/usuario/detalheUsuario.html" th:href="@{/detalhe}">Detalhes</a></li>
+                        <li><a href="/usuario/cadastro.html" th:href="@{/cadastro}">Cadastro</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="/submissoes/submissoes.html" th:href="@{/submissoes}" class="dropdown-toggle"
+                    data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/submissoes/evento/submeteEvento.html" th:href="@{/submete}">Novo Artigo</a></li>
+                        <li><a href="/submissoes/mostraSubmissoes.html" th:href="@{/mostra}">Buscar Artigo</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>

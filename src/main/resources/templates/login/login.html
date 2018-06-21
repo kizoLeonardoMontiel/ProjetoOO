@@ -24,12 +24,23 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		  <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
+		  <li><a href="/index.html" th:href="@{/}" >Home</a></li>
 		  <li><a href="/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
-		  <li><a href="/usuario/usuario.html"  th:href="@{/usuario}">Usuário</a></li>
-		  <li><a href="/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
+		  <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle" data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
+			  <ul class="dropdown-menu" role="menu">
+				  <li><a href="/usuario/detalheUsuario.html" th:href="@{/detalhe}">Detalhes</a></li>
+				  <li><a href="/usuario/cadastro.html" th:href="@{/cadastro}">Cadastro</a></li>
+			  </ul>
+		  </li>
+          <li class="dropdown"><a href="/submissoes/submissoes.html" th:href="@{/submissoes}" class="dropdown-toggle"
+              data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/submissoes/evento/submeteEvento.html" th:href="@{/submete}">Novo Artigo</a></li>
+                  <li><a href="/submissoes/mostraSubmissoes.html" th:href="@{/mostra}">Buscar Artigo</a></li>
+              </ul>
+          </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right active">
         <li><a href="/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
       </ul>
     </div>
@@ -41,8 +52,8 @@
 		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 			<br>
 			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#signin">Entrar</a></li>
-				<li><a data-toggle="tab" href="#signup">Cadastrar-se</a></li>
+				<li class="active"><a data-toggle="tab" href="#signin">Faça o Login</a></li>
+				<li><a data-toggle="tab" href="#signup">Não é cadastrado? Então clique aqui</a></li>
 			</ul>
 
 			<div class="tab-content">
@@ -67,14 +78,14 @@
 				<div id="signup" class="tab-pane fade">
 					<br>
 					<form role="Form" method="POST" action="" accept-charset="UTF-8" th:object="${user}" th:action="@{/login/login}">
-						<div class="form-group">
+                        <div class="form-group">
 							<input type="text" name="nome" th:field="*{nome}" placeholder="Nome" class="form-control" >
 						</div>
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="E-mail" class="form-control" required="required">
+                        </div>
 						<div class="form-group">
 							<input type="text" name="username" th:field="*{username}" placeholder="Nome de usuário" class="form-control" required="required">
-						</div>
-						<div class="form-group">
-							<input type="text" name="email" placeholder="Email" class="form-control" required="required">
 						</div>
 						<div class="form-group">
 							<input type="password" name="password" placeholder="Senha" class="form-control" required="required">
@@ -88,12 +99,11 @@
 
 					</form>
 				</div>
-			</div>
+    		</div>
 		</div>
 
 	</div>
 </div>
-
 	<script src="/js/main.js" charset="utf-8"></script>
 </body>
 </html>
