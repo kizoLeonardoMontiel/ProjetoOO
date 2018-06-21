@@ -1,15 +1,11 @@
 package com.projetoOO.projetoOO.projController;
 
+import com.projetoOO.projetoOO.Input.UserInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.projetoOO.projetoOO.projModel.Eventos;
 import com.projetoOO.projetoOO.projModel.Usuario;
 import com.projetoOO.projetoOO.projRepository.UsuarioRepository;
 
@@ -21,6 +17,13 @@ public class UserController {
 	@RequestMapping(value="/usuario",method=RequestMethod.GET)
 	public String usuarioGet() {
 		return "usuario/usuario";
+	}
+
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public ModelAndView loginGet(@ModelAttribute("user") UserInput user) {
+		ModelAndView mv = new ModelAndView("login/login");
+		mv.addObject("user", user);
+		return mv;
 	}
 	
 	@RequestMapping(value="/usuario/{ID}",method=RequestMethod.GET)
