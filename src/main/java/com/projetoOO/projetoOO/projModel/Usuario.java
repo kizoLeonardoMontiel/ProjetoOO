@@ -19,9 +19,6 @@ public class Usuario {
     private Long id;
     
     @Column(nullable = false)
-    private String evento;
-    
-    @Column(nullable = false)
     private String nome;
 
     @Column(nullable = false)

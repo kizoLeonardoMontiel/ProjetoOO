@@ -1,32 +1,15 @@
-package com.projetoOO.projetoOO.projModel;
-
-import javax.persistence.*;
+package com.projetoOO.projetoOO.Input;
 import java.util.Date;
-import java.util.List;
+import com.projetoOO.projetoOO.projModel.Submissoes;
 
-@Entity
-public class Submissoes {
+public class SubmissionInput {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private Long even_id;
-
-    @Column(nullable = false)
     private Long usua_id;
-
-    @Column(nullable = false)
     private String nome_art;
-
-    @Column(nullable = false)
     private String resumo_art;
-	
-    @Column(nullable = false)
     private Date dt_submissao;
-	
-    @Column(nullable = false)
     private String anexo_art;
 
     public Long getId() {
@@ -84,5 +67,4 @@ public class Submissoes {
     public void setAnexo_Art(String anexoArt) {
         this.anexo_art = anexoArt;
     }
-
 }

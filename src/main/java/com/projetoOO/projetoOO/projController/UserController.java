@@ -26,24 +26,24 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/usuario/{ID}",method=RequestMethod.GET)
-	public ModelAndView usuarioIDGet(@PathVariable("id") long id) {
-		Usuario user = userRepo.findById(id);
+	@RequestMapping(value="/detalhe",method=RequestMethod.GET)
+	public ModelAndView usuarioIDGet(@ModelAttribute("user") UserInput user) {
 		ModelAndView m = new ModelAndView("usuario/detalheUsuario");
-		m.addObject("usuario",user);
+		m.addObject("user",user);
 		return m;
 	}
 	
-	@RequestMapping(value="/usuario/{ID}",method=RequestMethod.POST)
-	public String usuarioIDPost(@PathVariable("id") long id) {
-		Usuario user = userRepo.findById(id);
+	@RequestMapping(value="/usuario/detalheUsuario",method=RequestMethod.POST)
+	public String usuarioIDPost(Usuario user) {
 		userRepo.save(user);
-		return "redirect:/{id}";
+		return "redirect:/usuario/detalheUsuario";
 	}
 	
-	@RequestMapping(value="/usuario/cadastro",method=RequestMethod.GET)
-	public String usuarioCadastroGet() {
-		return "usuario/usuario";
+	@RequestMapping(value="/cadastro",method=RequestMethod.GET)
+	public ModelAndView usuarioCadastroGet(@ModelAttribute("user") UserInput user) {
+		ModelAndView mc = new ModelAndView("usuario/cadastro");
+		mc.addObject("user", user);
+		return mc;
 	}
 	
 	@RequestMapping(value="/usuario/cadastro",method=RequestMethod.POST)
