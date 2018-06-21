@@ -24,13 +24,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		  <li><a href="../../templates/index.html"  th:href="@{/index}" >Home</a></li>
-		  <li><a href="../../templates/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
-		  <li><a href="../../templates/usuario/usuario.html"  th:href="@{/usuario}">Usuário</a></li>
-		  <li><a href="../../templates/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
+		  <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
+		  <li><a href="/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
+		  <li><a href="/usuario/usuario.html"  th:href="@{/usuario}">Usuário</a></li>
+		  <li><a href="/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../../templates/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
+        <li><a href="/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -66,9 +66,9 @@
 				</div>
 				<div id="signup" class="tab-pane fade">
 					<br>
-					<form role="Form" method="POST" action="" accept-charset="UTF-8" th:object="${user}" th:action="@{/login}">
+					<form role="Form" method="POST" action="" accept-charset="UTF-8" th:object="${user}" th:action="@{/login/login}">
 						<div class="form-group">
-							<input type="text" name="nome" th:field="*{name}" placeholder="Nome" class="form-control" required="required">
+							<input type="text" name="nome" th:field="*{nome}" placeholder="Nome" class="form-control" >
 						</div>
 						<div class="form-group">
 							<input type="text" name="username" th:field="*{username}" placeholder="Nome de usuário" class="form-control" required="required">
@@ -90,8 +90,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="ui red message" th:if="${error}"><span th:text="${error}"/></div>
-		<div class="ui green message" th:if="${success}"><span th:text="${success}"/></div>
+
 	</div>
 </div>
 

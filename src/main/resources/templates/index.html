@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Portal de Eventos</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <style >
-
-
-</style>
+    <title>Portal de Eventos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body >
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-          <li class="active"><a href="../../templates/index.html"  th:href="@{/index}" >Home</a></li>
-          <li><a href="../../templates/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
-          <li class="dropdown"><a href="../../templates/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
-                                  data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-              <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Detalhes</a></li>
-                  <li><a href="#">Cadastro</a></li>
-              </ul>          <li><a href="../../templates/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-          <li><a href="../../templates/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  class="active"></span> Login</a></li>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
+                <li><a href="/evento/evento.html" th:href="@{/evento}">Evento</a></li>
+                <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
+                    data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
 
-      </ul>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/usuario/detalheUsuario.html" th:href="@{/usuario}">Detalhes</a></li>
+                        <li><a href="/usuario/cadastro.html" th:href="@{/usuario}">Cadastro</a></li>
+                    </ul>
+                <li><a href="/submissoes/submissoes.html" th:href="@{/submissoes}">Submissões</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login/login.html" th:href="@{/login}"><span class="glyphicon glyphicon-log-in active"></span> Login</a></li>
+
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
-  
+
 <div class="container-fluid text-center" >
-  <div class="row content"  >
+    <div class="row content"  >
 
 
-      <h1>Evento</h1>
-      <p>Portal sobre o evento e suas publicações.</p>
-      <br>
+        <h1>Evento</h1>
+        <p>Portal sobre o evento e suas publicações.</p>
+        <br>
 
 
-  </div>
+    </div>
 </div>
-
-
-
-
 </body>
 </html>

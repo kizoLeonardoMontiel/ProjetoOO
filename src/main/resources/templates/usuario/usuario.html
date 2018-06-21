@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br"   xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Evento</title>
+  <title>Usuário</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,31 +25,34 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="../../templates/index.html"  th:href="@{/index}">Home</a></li>
-        <li><a href="../../templates/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
-          <li class="dropdown"><a href="../../templates/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
-                                  data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
+        <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
+        <li><a href="/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
+          <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
+              data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
 
               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Detalhes</a></li>
-                  <li><a href="#">Cadastro</a></li>
-              </ul>        <li><a href="../../templates/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
+                  <li><a href="/usuario/detalheUsuario.html" th:href="@{/usuario}">Detalhes</a></li>
+                  <li><a href="/usuario/cadastro.html" th:href="@{/usuario}">Cadastro</a></li>
+              </ul>
+              <li><a href="/submissoes/submissoes.html"  th:href="@{/submissoes}">Submissões</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="../../templates/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+          <li><a href="/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-	<div>
-	
-   
-
-	</div>
+<div class="container-fluid text-center" >
+    <div class="row content"  >
 
 
+        <h1>Usuário</h1>
+        <p>Mostra os detalhes do Usuário.</p>
+        <br>
 
+
+    </div>
+</div>
 </body>
 </html>
