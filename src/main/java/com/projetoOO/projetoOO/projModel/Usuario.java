@@ -31,7 +31,7 @@ public class Usuario {
     private String password;
 
     @ManyToMany
-    @JoinTable(name="usuario",
+    @JoinTable(name="eventos",
             joinColumns = @JoinColumn(name = "usua_id", referencedColumnName = "id")
     )
 

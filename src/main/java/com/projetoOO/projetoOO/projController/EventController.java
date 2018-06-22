@@ -36,7 +36,7 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/evento/{ID}",method=RequestMethod.GET)
-	public ModelAndView eventoIDGet(@PathVariable("id") long id) {
+	public ModelAndView eventoIDGet(@PathVariable("ID") long id) {
 		Eventos events = eventRepo.findById(id);
 		ModelAndView m = new ModelAndView("evento/detalheEvento");
 		m.addObject("eventos",events);
@@ -44,14 +44,14 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/evento/{ID}",method=RequestMethod.POST)
-	public String eventoIDPost(@PathVariable("id") long id) {
+	public String eventoIDPost(@PathVariable("ID") long id) {
 		Eventos events = eventRepo.findById(id);
 		eventRepo.save(events);
 		return "redirect:/{id}";
 	}
 	
 	@RequestMapping(value="/evento/{ID}/delete",method=RequestMethod.GET)
-	public ModelAndView eventoIDDelete(@PathVariable("id") long id, Usuario usuario) {
+	public ModelAndView eventoIDDelete(@PathVariable("ID") long id, Usuario usuario) {
 		Eventos events = eventRepo.findById(id);
 		ModelAndView m = new ModelAndView("evento/deletaEvento");
 		m.addObject("eventos",events);

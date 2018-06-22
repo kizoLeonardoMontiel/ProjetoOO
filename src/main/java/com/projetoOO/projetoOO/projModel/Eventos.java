@@ -28,7 +28,7 @@ public class Eventos implements Serializable {
     private Date dt_finscr;
 
     @ManyToMany
-    @JoinTable(name="evento",
+    @JoinTable(name="submissoes",
             joinColumns = @JoinColumn(name = "even_id", referencedColumnName = "id")
     )
 
