@@ -14,7 +14,7 @@ public class EventInput {
     private Long id;
 
     private String nome_evento;
-    private Long usua_id;
+    private String usua_id;
     private Date dt_evento;
     private Date dt_iinscr;
     private Date dt_finscr;
@@ -45,12 +45,12 @@ public class EventInput {
         this.nome_evento = nome;
     }
 
-    public Long getUsua_Id() {
+    public String getUsua_Id() {
         return usua_id;
     }
 
-    public void setUsua_Id(Long id) {
-        this.usua_id = id;
+    public void setUsua_Id(String Usua_id) {
+        this.usua_id = usua_id;
     }
 
     public Date getDt_Evento() {

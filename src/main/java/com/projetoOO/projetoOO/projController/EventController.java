@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -34,24 +35,24 @@ public class EventController {
 		m.addObject("eventos", events); //na view, utilizar o nome "eventos"
 		return m;
 	}
-	
+
 	@RequestMapping(value="/evento/{ID}",method=RequestMethod.GET)
-	public ModelAndView eventoIDGet(@PathVariable("id") long id) {
+	public ModelAndView eventoIDGet(@RequestParam("id") long id) {
 		Eventos events = eventRepo.findById(id);
 		ModelAndView m = new ModelAndView("evento/detalheEvento");
 		m.addObject("eventos",events);
 		return m;
 	}
-	
+
 	@RequestMapping(value="/evento/{ID}",method=RequestMethod.POST)
-	public String eventoIDPost(@PathVariable("id") long id) {
+	public String eventoIDPost(@RequestParam("id") long id) {
 		Eventos events = eventRepo.findById(id);
 		eventRepo.save(events);
 		return "redirect:/{id}";
 	}
-	
+
 	@RequestMapping(value="/evento/{ID}/delete",method=RequestMethod.GET)
-	public ModelAndView eventoIDDelete(@PathVariable("id") long id, Usuario usuario) {
+	public ModelAndView eventoIDDelete(@RequestParam("id") long id, Usuario usuario) {
 		Eventos events = eventRepo.findById(id);
 		ModelAndView m = new ModelAndView("evento/deletaEvento");
 		m.addObject("eventos",events);
