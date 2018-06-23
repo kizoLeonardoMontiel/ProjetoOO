@@ -12,7 +12,6 @@ import java.util.List;
 public class EventInput {
 
     private Long id;
-
     private String nome_evento;
     private String usua_id;
     private Date dt_evento;
