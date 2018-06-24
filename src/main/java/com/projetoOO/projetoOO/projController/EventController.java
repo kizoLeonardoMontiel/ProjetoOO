@@ -1,32 +1,41 @@
 package com.projetoOO.projetoOO.projController;
 
+import com.projetoOO.projetoOO.Input.EventInput;
 import com.projetoOO.projetoOO.projModel.Eventos;
 import com.projetoOO.projetoOO.projModel.Usuario;
 import com.projetoOO.projetoOO.projRepository.EventosRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class EventController {
 	@Autowired
-	private EventosRepository eventRepo;
+	EventosRepository eventRepo;
 
-	
-	@RequestMapping(value="/evento",method=RequestMethod.GET)
-	public String eventoGet() {
-		return "evento/evento";
-	}
+    private ModelMapper mapper = new ModelMapper();
 
-	@RequestMapping(value="/evento",method=RequestMethod.POST)
-	public String eventoPost(Eventos event) {
-		eventRepo.save(event);
-		return "redirect:/evento";
-	}
-	
+    @GetMapping("/evento")
+    public ModelAndView newUserForm(@ModelAttribute("event") EventInput event){
+        ModelAndView mv = new ModelAndView("evento/evento");
+        mv.addObject("event", event);
+        return mv;
+    }
+
+    @PostMapping("/evento")
+    public String newEve(EventInput eventInput, RedirectAttributes redirectAttrs){
+        Eventos eventos = eventRepo.findByEventos(eventInput.getNome_Evento());
+
+        Eventos event = mapper.map(eventInput, Eventos.class);
+        eventRepo.save(eventos);
+
+        redirectAttrs.addFlashAttribute("success", "Evento cadastrado com sucesso.");
+        return "redirect:/";
+    }
+
 	@RequestMapping("/evento")
 	public ModelAndView listaEventos() {
 		ModelAndView m = new ModelAndView("evento/evento");

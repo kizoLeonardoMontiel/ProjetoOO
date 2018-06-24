@@ -1,27 +1,45 @@
 package com.projetoOO.projetoOO.projController;
 
 import com.projetoOO.projetoOO.Input.SubmissionInput;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.projetoOO.projetoOO.projModel.Eventos;
 import com.projetoOO.projetoOO.projModel.Submissoes;
-import com.projetoOO.projetoOO.projModel.Usuario;
-import com.projetoOO.projetoOO.projRepository.EventosRepository;
 import com.projetoOO.projetoOO.projRepository.SubmissoesRepository;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class SubmissionController {
+
 	@Autowired
-	public SubmissoesRepository submissionRepo;
-	@Autowired
-	public EventosRepository eventRepo;
-	
+	SubmissoesRepository submissionRepo;
+
+	private ModelMapper mapper = new ModelMapper();
+
+
+   /* @GetMapping("/submete")
+    public ModelAndView newArtForm(@ModelAttribute("submission") SubmissionInput submission){
+        ModelAndView mv = new ModelAndView("submissoes/evento/submeteEvento");
+        mv.addObject("submission", submission);
+        return mv;
+    }
+
+    @PostMapping("/submissoes/evento/submeteEvento")
+    public String newArt(SubmissionInput submissionInput, RedirectAttributes redirectAttrs){
+        Submissoes submission = submissionRepo.findBySubmissoes(submissionInput.getNome_Art());
+
+        Submissoes sub = mapper.map(submissionInput, Submissoes.class);
+        submissionRepo.save(sub);
+
+        redirectAttrs.addFlashAttribute("success", "Evento cadastrado com sucesso.");
+        return "redirect:/";
+    }
+*/
+
+
 	@RequestMapping(value="/submissoes",method=RequestMethod.GET)
 	public String submissoesGet() {
 		return "submissoes/submissoes";
@@ -48,7 +66,7 @@ public class SubmissionController {
 		m.addObject("submissoes",submission);
 		return m;
 	}
-	
+
 	@RequestMapping(value="/submete",method=RequestMethod.GET)
 	public ModelAndView submissoesEventoIDGet(@ModelAttribute("submission") SubmissionInput submission) {
 		ModelAndView m = new ModelAndView("submissoes/evento/submeteEvento");
