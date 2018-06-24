@@ -1,31 +1,25 @@
 package com.projetoOO.projetoOO.Input;
 
-import com.projetoOO.projetoOO.projModel.Eventos;
-
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import java.util.Date;
+import com.projetoOO.projetoOO.projModel.Evento;
 import java.util.List;
 
 public class EventInput {
 
     private Long id;
-    private String nome_evento;
-    private String usua_id;
-    private Date dt_evento;
-    private Date dt_iinscr;
-    private Date dt_finscr;
+    private String nevento;
+    private String usuaid;
+    private String dtevento;
+    private String dtiinscr;
+    private String dtfinscr;
 
-    private List<Eventos> eventos;
+    private List<Evento> evento;
 
-    public List<Eventos> getEventos() {
-        return eventos;
+    public List<Evento> getEventos() {
+        return evento;
     }
 
-    public void setEventos(List<Eventos> eventos) {
-        this.eventos = eventos;
+    public void setEventos(List<Evento> evento) {
+        this.evento = evento;
     }
 
     public Long getId() {
@@ -36,42 +30,42 @@ public class EventInput {
         this.id = id;
     }
 
-    public String getNome_Evento() {
-        return nome_evento;
+    public String getNevento() {
+        return nevento;
     }
 
-    public void setNome_Evento(String nome) {
-        this.nome_evento = nome;
+    public void setNevento(String nevento) {
+        this.nevento = nevento;
     }
 
-    public String getUsua_Id() {
-        return usua_id;
+    public String getUsuaId() {
+        return usuaid;
     }
 
-    public void setUsua_Id(String Usua_id) {
-        this.usua_id = usua_id;
+    public void setUsuaId(String usuaid) {
+        this.usuaid = usuaid;
     }
 
-    public Date getDt_Evento() {
-        return dt_evento;
+    public String getDtEvento() {
+        return dtevento;
     }
 
-    public void setDt_Evento(Date dtEvento) { this.dt_evento = dtEvento; }
+    public void setDtEvento(String dtEvento) { this.dtevento = dtEvento; }
 
-    public Date getDt_Iinscr() {
-        return dt_iinscr;
+    public String getDtIinscr() {
+        return dtiinscr;
     }
 
-    public void setDt_Iinscr(Date dtIinscr) {
-        this.dt_iinscr = dtIinscr;
+    public void setDtIinscr(String dtIinscr) {
+        this.dtiinscr = dtIinscr;
     }
 
-    public Date getDt_Finscr() {
-        return dt_finscr;
+    public String getDtFinscr() {
+        return dtfinscr;
     }
 
-    public void setDt_Finscr(Date dtFinscr) {
-        this.dt_finscr = dtFinscr;
+    public void setDtFinscr(String dtFinscr) {
+        this.dtfinscr = dtFinscr;
     }
 }
 

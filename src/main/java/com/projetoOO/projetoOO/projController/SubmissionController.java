@@ -9,19 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.projetoOO.projetoOO.projModel.Eventos;
 import com.projetoOO.projetoOO.projModel.Submissoes;
-import com.projetoOO.projetoOO.projModel.Usuario;
-import com.projetoOO.projetoOO.projRepository.EventosRepository;
 import com.projetoOO.projetoOO.projRepository.SubmissoesRepository;
 
 @Controller
 public class SubmissionController {
 	@Autowired
 	public SubmissoesRepository submissionRepo;
-	@Autowired
-	public EventosRepository eventRepo;
-	
+
 	@RequestMapping(value="/submissoes",method=RequestMethod.GET)
 	public String submissoesGet() {
 		return "submissoes/submissoes";

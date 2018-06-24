@@ -20,6 +20,7 @@ public class UserInput {
     public void setUsuario(List<Usuario> usuario) {
         this.usuario = usuario;
     }
+
     public Long getId() {
         return id;
     }
