@@ -1,5 +1,7 @@
 package com.projetoOO.projetoOO.Input;
 import java.util.Date;
+import java.util.List;
+
 import com.projetoOO.projetoOO.projModel.Submissoes;
 
 public class SubmissionInput {
@@ -11,6 +13,7 @@ public class SubmissionInput {
     private String resumo_art;
     private Date dt_submissao;
     private String anexo_art;
+
 
     public Long getId() {
         return id;
