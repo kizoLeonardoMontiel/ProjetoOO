@@ -71,14 +71,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.projetoOO</groupId>
-            <artifactId>projetoOO</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
 
-    </dependencies>
+
+
+	</dependencies>
 
 	<build>
 		<plugins>

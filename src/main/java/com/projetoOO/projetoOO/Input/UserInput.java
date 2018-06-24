@@ -6,6 +6,7 @@ import java.util.List;
 public class UserInput {
 
     private Long id;
+    private String evento;
     private String nome;
     private String email;
     private String username;
@@ -20,7 +21,6 @@ public class UserInput {
     public void setUsuario(List<Usuario> usuario) {
         this.usuario = usuario;
     }
-
     public Long getId() {
         return id;
     }

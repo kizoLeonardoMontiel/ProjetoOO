@@ -1,49 +1,60 @@
 package com.projetoOO.projetoOO.projController;
 
-import com.projetoOO.projetoOO.projModel.Evento;
-import com.projetoOO.projetoOO.projRepository.EventoRepository;
+import com.projetoOO.projetoOO.projModel.Eventos;
+import com.projetoOO.projetoOO.projModel.Usuario;
+import com.projetoOO.projetoOO.projRepository.EventosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
-
 public class EventController {
+	@Autowired
+	private EventosRepository eventRepo;
 
-	private EventoRepository eventoRepo;
+	
+	@RequestMapping(value="/evento",method=RequestMethod.GET)
+	public String eventoGet() {
+		return "evento/evento";
+	}
 
-    @Autowired
-    public EventController(EventoRepository eventoRepo){
-        this.eventoRepo = eventoRepo;
-    }
-
-    @RequestMapping(value = "/evento{id}", method = RequestMethod.GET)
-    public String adicionaEventoGet(@PathVariable("id") Long id, Evento evento) {
-        return "/";
-    }
-
-    @RequestMapping(value="/evento{id}",method = RequestMethod.POST)
-    public String adicionaEvento(@PathVariable("id") Long id, Evento evento) {
-        eventoRepo.save(evento);
-        return "redirect:/";
-    }
-
-    /*@RequestMapping(value="/evento",method=RequestMethod.GET)
-    public ModelAndView eventoGet(@ModelAttribute("eventos") EventInput eventos) {
-            ModelAndView me = new ModelAndView("evento/evento");
-            me.addObject("eventos", eventos);
-            return me;
-    }*/
-
-
-    @RequestMapping("/evento")
-    public ModelAndView listaEventos() {
-        ModelAndView m = new ModelAndView("evento/evento");
-        Iterable<Evento> evento = eventoRepo.findAll();
-        m.addObject("evento", evento); //na view, utilizar o nome "eventos"
-        return m;
-    }
-
+	@RequestMapping(value="/evento",method=RequestMethod.POST)
+	public String eventoPost(Eventos event) {
+		eventRepo.save(event);
+		return "redirect:/evento";
+	}
+	
+	@RequestMapping("/evento")
+	public ModelAndView listaEventos() {
+		ModelAndView m = new ModelAndView("evento/evento");
+		Iterable<Eventos> events = eventRepo.findAll();
+		m.addObject("eventos", events); //na view, utilizar o nome "eventos"
+		return m;
+	}
+	
+	@RequestMapping(value="/evento/{ID}",method=RequestMethod.GET)
+	public ModelAndView eventoIDGet(@PathVariable("id") long id) {
+		Eventos events = eventRepo.findById(id);
+		ModelAndView m = new ModelAndView("evento/detalheEvento");
+		m.addObject("eventos",events);
+		return m;
+	}
+	
+	@RequestMapping(value="/evento/{ID}",method=RequestMethod.POST)
+	public String eventoIDPost(@PathVariable("id") long id) {
+		Eventos events = eventRepo.findById(id);
+		eventRepo.save(events);
+		return "redirect:/{id}";
+	}
+	
+	@RequestMapping(value="/evento/{ID}/delete",method=RequestMethod.GET)
+	public ModelAndView eventoIDDelete(@PathVariable("id") long id, Usuario usuario) {
+		Eventos events = eventRepo.findById(id);
+		ModelAndView m = new ModelAndView("evento/deletaEvento");
+		m.addObject("eventos",events);
+		return m;
+	}
 }

@@ -8,10 +8,8 @@ import java.util.List;
 @Entity
 public class Eventos implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -30,7 +28,7 @@ public class Eventos implements Serializable {
     private Date dt_finscr;
 
     @ManyToMany
-    @JoinTable(name="submissoes",
+    @JoinTable(name="evento",
             joinColumns = @JoinColumn(name = "even_id", referencedColumnName = "id")
     )
 

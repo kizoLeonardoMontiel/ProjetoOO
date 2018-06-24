@@ -49,56 +49,28 @@
   
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+
+		<form role="Form" method="POST" action="/login" accept-charset="UTF-8">
+			<div class="form-group">
+				<input type="text" name="email" placeholder="Email" class="form-control">
+			</div>
+			<div class="form-group">
+				<input type="password" name="password" placeholder="Senha" class="form-control">
+			</div>
+			<div class="form-group">
+			</div>
 			<br>
-			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#signin">Faça o Login</a></li>
-				<li><a data-toggle="tab" href="#signup">Não é cadastrado? Então clique aqui</a></li>
-			</ul>
-
-			<div class="tab-content">
-				<div id="signin" class="tab-pane fade in active">
-					<br>
-					<form role="Form" method="POST" action="" accept-charset="UTF-8">
-						<div class="form-group">
-							<input type="text" name="email" placeholder="Email" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" name="password" placeholder="Senha" class="form-control">
-						</div>
-						<div class="form-group">
-							
-						</div>
-						<br>
-						<div class="form-group">
-							<button type="submit" class="btn btn-default">Entrar</button>
-						</div>
-					</form>
-				</div>
-				<div id="signup" class="tab-pane fade">
-					<br>
-					<form role="Form" method="POST" action="" accept-charset="UTF-8">
-                        <div class="form-group">
-							<input type="text" name="nome" placeholder="nome" class="form-control" >
-						</div>
-                        <div class="form-group">
-                            <input type="text" name="email" placeholder="email" class="form-control" required="required">
-                        </div>
-						<div class="form-group">
-                            <input type="text" name="username" placeholder="username" class="form-control" required="required">
-						</div>
-						<div class="form-group">
-                            <input type="password" name="password" placeholder="senha" class="form-control" required="required">
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-default">Cadastrar</button>
-						</div>
-
-					</form>
-				</div>
-    		</div>
-		</div>
-
+			<div class="form-group">
+                <div class="two fields">
+                    <div class="field">
+                        <button type="submit" class="btn btn-default">Entrar</button>
+                    </div>
+                    <div class="field">
+                        <a class="ui fluid blue basic button" href="/usuario/novoUsuario">Novo Usuário</a>
+                    </div>
+                </div>
+			</div>
+		</form>
 	</div>
 </div>
 	<script src="/js/main.js" charset="utf-8"></script>
