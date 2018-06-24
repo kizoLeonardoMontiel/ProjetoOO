@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EventosRepository extends CrudRepository<Eventos, Long> {
 	Eventos findById(long id);
+	Eventos findByEventos(String nome_evento);
 
 }
