@@ -6,7 +6,5 @@ create table Eventos (
   dt_iinscr DATETIME not null,
   dt_finscr DATETIME not null,
   primary key (id),
-  unique key UK_EVENTOS(nome_evento),
-  unique key UK_USUARIO(usua_id),
   foreign key (usua_id) references usuario(id)
 )
