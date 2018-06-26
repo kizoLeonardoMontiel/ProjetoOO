@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Eventos {
+public class Eventos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +29,9 @@ public class Eventos {
 
     @ManyToMany
     @JoinTable(name="submissoes",
-            joinColumns = @JoinColumn(name = "even_id", referencedColumnName = "id")
-    )
+            joinColumns = @JoinColumn(name = "even_id", referencedColumnName = "id"))
+
+
 
     private List<Eventos> eventos;
 
