@@ -41,7 +41,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/cadastro")
     public ModelAndView detalheUsuario(@PathVariable("id") Long idUsuario, RedirectAttributes redirectAttrs){
         Usuario usuario = userRepo.findById(idUsuario).get();
 
@@ -58,7 +58,7 @@ public class UserController {
         return mv;
     }
 
-    @PostMapping("/{id}")
+    @PostMapping(value = "/cadastro")
     public String salvarUsuario(@PathVariable("id") Long idUsuario, UserInput userInput, RedirectAttributes redirectAttrs) {
         Usuario usuario = userRepo.findById(idUsuario).get();
 
