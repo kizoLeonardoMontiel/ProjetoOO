@@ -29,15 +29,8 @@ public class EventController {
 		return mi;
 	}
 
-    /*@GetMapping("/evento")
-    public ModelAndView newUserForm(@ModelAttribute("event") EventInput event){
-        ModelAndView mv = new ModelAndView("evento/evento");
-        mv.addObject("eventos", event);
-        return mv;
-    }*/
-
     @PostMapping("/evento")
-    public String newEve(EventInput eventInput, RedirectAttributes redirectAttrs){
+    public String newEvent(EventInput eventInput, RedirectAttributes redirectAttrs){
         Eventos eventos = eventRepo.findByEventos(eventInput.getNome_Evento());
 
         Eventos event = mapper.map(eventInput, Eventos.class);
@@ -63,11 +56,11 @@ public class EventController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/evento/{ID}",method=RequestMethod.POST)
+	@RequestMapping(value="/evento/",method=RequestMethod.POST)
 	public String eventoIDPost(@PathVariable("id") long id) {
 		Eventos events = eventRepo.findById(id);
 		eventRepo.save(events);
-		return "redirect:/{id}";
+		return "redirect:/evento/";
 	}
 	
 	@RequestMapping(value="/evento/{ID}/delete",method=RequestMethod.GET)

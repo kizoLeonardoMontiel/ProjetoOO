@@ -1,17 +1,14 @@
 package com.projetoOO.projetoOO.projModel;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+
 import com.projetoOO.projetoOO.projModel.Eventos;
 @Entity
+@Table(name = "Usuario")
 public class Usuario {
 
     @Id
@@ -34,7 +31,6 @@ public class Usuario {
     @JoinTable(name="eventos",
             joinColumns = @JoinColumn(name = "usua_id", referencedColumnName = "id")
     )
-
     private List<Usuario> usuario;
 
     public List<Usuario> getUsuario() {
@@ -44,6 +40,19 @@ public class Usuario {
     public void setUsuario(List<Usuario> usuario) {
         this.usuario = usuario;
     }
+
+    @ManyToMany
+    @JoinTable(name="user_role", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="role_id"))
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
 
     public Long getId() {
         return id;
@@ -84,4 +93,11 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setActive(int i) {
+    }
+
+    public void setRoles(HashSet<Role> roles) {
+    }
+
 }

@@ -5,10 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "Submissoes")
 public class Submissoes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)

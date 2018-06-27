@@ -1,15 +1,16 @@
 package com.projetoOO.projetoOO.projModel;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Eventos implements Serializable {
+@Table(name = "Eventos")
+public class Eventos  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
