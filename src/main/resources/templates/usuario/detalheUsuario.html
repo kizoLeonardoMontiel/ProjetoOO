@@ -64,26 +64,26 @@
                     <table class="table table-sm table-striped table-hover table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Evento</th>
-                            <th>Artigo</th>
-                            <th>Resumo</th>
-                            <th>Data da Submissão</th>
-                            <th>Anexo</th>
+
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Username</th>
+
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!--<tr th:each="post : ${posts}">
-                            <td th:text="${post.id}"></td>
-                            <td th:utext="${post.nome_evento}"></td>
-                            <td th:text="${post.nome_art}"></td>
-                            <td th:text="${#dates.format(post.dt_submissao, 'dd/MM/yyyy')}"></td>
-                            <td th:text="${post.anexo_art}"></td>
+                        <tr th:each="usuarios : ${usuarios}">
+
+                            <td th:text="${usuarios.nome}"></td>
+                            <td th:text="${usuarios.email}"></td>
+                            <td th:text="${usuarios.username}"></td>
+
+
                             <td>
 
                             </td>
-                        </tr>-->
+                        </tr>
                         </tbody>
                     </table>
                 </div>
