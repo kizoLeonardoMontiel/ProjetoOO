@@ -4,7 +4,7 @@ import com.projetoOO.projetoOO.Input.EventInput;
 import com.projetoOO.projetoOO.projModel.Eventos;
 import com.projetoOO.projetoOO.projModel.Usuario;
 import com.projetoOO.projetoOO.projRepository.EventosRepository;
-import com.projetoOO.projetoOO.service.Services;
+import com.projetoOO.projetoOO.service.EventoServices;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class EventController {
 	@Autowired
 	EventosRepository eventRepo;
 	@Autowired
-	private Services services;
+	private EventoServices eventoservices;
 
     private ModelMapper mapper = new ModelMapper();
 
@@ -25,18 +25,18 @@ public class EventController {
 	public ModelAndView findAll() {
 
 		ModelAndView mi = new ModelAndView("/index");
-		mi.addObject("eventos", services.findAll());
+		mi.addObject("posts", eventoservices.findAll());
 		return mi;
 	}
 
-    @GetMapping("/evento")
+    /*@GetMapping("/evento")
     public ModelAndView newUserForm(@ModelAttribute("event") EventInput event){
         ModelAndView mv = new ModelAndView("evento/evento");
         mv.addObject("eventos", event);
         return mv;
-    }
+    }*/
 
-    /*@PostMapping("/evento")
+    @PostMapping("/evento")
     public String newEve(EventInput eventInput, RedirectAttributes redirectAttrs){
         Eventos eventos = eventRepo.findByEventos(eventInput.getNome_Evento());
 
@@ -45,15 +45,15 @@ public class EventController {
 
         redirectAttrs.addFlashAttribute("success", "Evento cadastrado com sucesso.");
         return "redirect:/";
-    }*/
+    }
 
-	/*@RequestMapping("/evento")
+	@RequestMapping("/evento")
 	public ModelAndView listaEventos() {
 		ModelAndView mv = new ModelAndView("evento/evento");
 		Iterable<Eventos> events = eventRepo.findAll();
 		mv.addObject("eventos", events); //na view, utilizar o nome "eventos"
 		return mv;
-	}*/
+	}
 	
 	@RequestMapping(value="/evento/{ID}",method=RequestMethod.GET)
 	public ModelAndView eventoIDGet(@PathVariable("id") long id) {

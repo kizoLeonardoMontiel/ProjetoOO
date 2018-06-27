@@ -15,7 +15,7 @@ import com.projetoOO.projetoOO.config.stringConstants;
 import com.projetoOO.projetoOO.config.RedirectConstants;
 
 @Controller
-@RequestMapping("/usuario")
+//@RequestMapping("/usuario")
 public class UserController {
 
     @Autowired
@@ -23,14 +23,14 @@ public class UserController {
 
     private ModelMapper mapper = new ModelMapper();
 
-    @GetMapping("/novoUsuario")
+    @GetMapping("usuario/novoUsuario")
     public ModelAndView newUserForm(@ModelAttribute("user") UserInput user){
         ModelAndView mv = new ModelAndView("usuario/novoUsuario");
         mv.addObject("user", user);
         return mv;
     }
 
-    @PostMapping("/novoUsuario")
+    @PostMapping("usuario/novoUsuario")
     public String newUser(UserInput userInput, RedirectAttributes redirectAttrs){
         Usuario usuario = userRepo.findByUsername(userInput.getUsername());
 
@@ -40,8 +40,35 @@ public class UserController {
         redirectAttrs.addFlashAttribute("success", "Usuário cadastrado com sucesso. Você já pode entrar no sistema.");
         return "redirect:/";
     }
+    // aqui
+    @RequestMapping(value="/detalhe",method=RequestMethod.GET)
+    public ModelAndView usuarioIDGet(@ModelAttribute("user") UserInput user) {
+        ModelAndView m = new ModelAndView("usuario/detalheUsuario");
+        m.addObject("user",user);
+        return m;
+    }
 
-    @GetMapping("/cadastro")
+    @RequestMapping(value="/usuario/detalheUsuario",method=RequestMethod.POST)
+    public String usuarioIDPost(Usuario user) {
+        userRepo.save(user);
+        return "redirect:usuario/detalheUsuario";
+    }
+
+    @RequestMapping(value="/cadastro",method=RequestMethod.GET)
+    public ModelAndView usuarioCadastroGet(@ModelAttribute("user") UserInput user) {
+        ModelAndView mc = new ModelAndView("usuario/cadastro");
+        mc.addObject("user", user);
+        return mc;
+    }
+
+    @RequestMapping(value="/usuario/cadastro",method=RequestMethod.POST)
+    public String usuarioCadastroPost(Usuario user) {
+        userRepo.save(user);
+        return "redirect:usuario/cadastro";
+    }
+    //ate aqui
+
+    /*@GetMapping("/cadastro")
     public ModelAndView detalheUsuario(@PathVariable("id") Long idUsuario, RedirectAttributes redirectAttrs){
         Usuario usuario = userRepo.findById(idUsuario).get();
 
@@ -57,8 +84,8 @@ public class UserController {
         mv.addObject("user", userInput);
         return mv;
     }
-
-    @PostMapping(value = "/cadastro")
+*/
+  /*  @PostMapping(value = "/cadastro")
     public String salvarUsuario(@PathVariable("id") Long idUsuario, UserInput userInput, RedirectAttributes redirectAttrs) {
         Usuario usuario = userRepo.findById(idUsuario).get();
 
@@ -75,5 +102,5 @@ public class UserController {
         redirectAttrs.addFlashAttribute("usuario", userInput);
         return RedirectConstants.REDIRECT_CADASTRO + idUsuario;
     }
-
+*/
 }

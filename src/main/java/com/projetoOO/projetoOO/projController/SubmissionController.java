@@ -1,6 +1,7 @@
 package com.projetoOO.projetoOO.projController;
 
 import com.projetoOO.projetoOO.Input.SubmissionInput;
+import com.projetoOO.projetoOO.service.SubmissaoServices;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,17 +18,13 @@ public class SubmissionController {
 	@Autowired
 	SubmissoesRepository submissionRepo;
 
+	@Autowired
+	private SubmissaoServices submissaoservices;
+
 	private ModelMapper mapper = new ModelMapper();
 
 
-   /* @GetMapping("/submete")
-    public ModelAndView newArtForm(@ModelAttribute("submission") SubmissionInput submission){
-        ModelAndView mv = new ModelAndView("submissoes/evento/submeteEvento");
-        mv.addObject("submission", submission);
-        return mv;
-    }
-
-    @PostMapping("/submissoes/evento/submeteEvento")
+	/*@PostMapping("/submissoes/evento/submeteEvento")
     public String newArt(SubmissionInput submissionInput, RedirectAttributes redirectAttrs){
         Submissoes submission = submissionRepo.findBySubmissoes(submissionInput.getNome_Art());
 
@@ -36,14 +33,9 @@ public class SubmissionController {
 
         redirectAttrs.addFlashAttribute("success", "Evento cadastrado com sucesso.");
         return "redirect:/";
-    }
-*/
+    }*/
 
 
-	@RequestMapping(value="/submissoes",method=RequestMethod.GET)
-	public String submissoesGet() {
-		return "submissoes/submissoes";
-	}
 
 	@RequestMapping(value="/mostra",method=RequestMethod.GET)
 	public ModelAndView submissoesIDGet(@ModelAttribute("submission") SubmissionInput submission) {
