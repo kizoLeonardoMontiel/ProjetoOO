@@ -38,7 +38,7 @@
             data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/submissoes/evento/submeteEvento.html" th:href="@{/submete}">Novo Artigo</a></li>
-            <li><a href="/submissoes/mostraSubmissoes.html" th:href="@{/mostra}">Buscar Artigo</a></li>
+            <li><a href="/submissoes/mostraSubmissoes.html" th:href="@{/mostra}">Listar Artigos</a></li>
           </ul>
         </li>
       </ul>
@@ -53,37 +53,37 @@
     <div class="container-fluid">
         <form role="Form" method="POST" action="" accept-charset="UTF-8">
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <label>INCLUSÃO DE EVENTOS</label>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <input type="text" name="nome_evento" placeholder="Nome" class="form-control" >
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <input type="text" name="usua_id" placeholder="Usuário Responsável" class="form-control" required="required">
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <input type="text" name="dt_evento" placeholder="Data Inclusão" class="form-control" required="required">
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <input type="text" name="dt_iinscr" placeholder="Data Inicio Inscrição" class="form-control" required="required">
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <input type="text" name="dt_finscr" placeholder="Data Final Inscrição" class="form-control" required="required">
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-md-offset-4">
                     <button type="submit" class="btn btn-default">Cadastrar Evento</button>
                 </div>
             </div>
