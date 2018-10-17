@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Evento</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/index.html" th:href="@{/}">Home</a></li>
+        <li class ="active"><a href="/evento/evento.html" th:href="@{/evento}">Evento</a></li>
+        <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
+            data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/usuario/detalheUsuario.html" th:href="@{/detalhe}">Detalhes</a></li>
+            <li><a href="/usuario/cadastro.html" th:href="@{/cadastro}">Cadastro</a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a href="/submissoes/submissoes.html" th:href="@{/submissoes}" class="dropdown-toggle"
+            data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/submissoes/evento/submeteEvento.html" th:href="@{/submete}">Novo Artigo</a></li>
+            <li><a href="/submissoes/mostraSubmissoes.html" th:href="@{/mostra}">Listar Artigos</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login/login.html" th:href="@{/login}"><span class="glyphicon glyphicon-log-in active"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container text-center" >
+    <div class="container-fluid">
+        <form role="Form" method="POST" action="" accept-charset="UTF-8">
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <label>INCLUSÃO DE EVENTOS</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="nome_evento" placeholder="Nome" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="usua_id" placeholder="Usuário Responsável" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="dt_evento" placeholder="Data Inclusão" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="dt_iinscr" placeholder="Data Inicio Inscrição" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="dt_finscr" placeholder="Data Final Inscrição" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-default">Cadastrar Evento</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,16 +1,18 @@
+
+
 <!DOCTYPE html>
-<html lang="pt-br"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Portal de Eventos</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<html lang="pt-br"  xmlns:th="http://www.thymeleaf.org"><head>
+    <title>Lista de Artigos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
 
+    </style>
 </head>
-<body >
+<body>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -24,16 +26,16 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
-                <li><a href="/evento/evento.html" th:href="@{/evento}">Evento</a></li>
+                <li><a href="/index.html" th:href="@{/}" >Home</a></li>
+                <li><a href="/evento/evento.html"  th:href="@{/evento}">Evento</a></li>
                 <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
-                    data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
+                                        data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/usuario/detalheUsuario.html" th:href="@{/detalhe}">Detalhes</a></li>
                         <li><a href="/usuario/cadastro.html" th:href="@{/cadastro}">Cadastro</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="/submissoes/submissoes.html" th:href="@{/submissoes}" class="dropdown-toggle"
+                <li class="dropdown active"><a href="/submissoes/submissoes.html" th:href="@{/submissoes}" class="dropdown-toggle"
                     data-toggle="dropdown" role="button">Submissões<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/submissoes/evento/submeteEvento.html" th:href="@{/submete}">Novo Artigo</a></li>
@@ -42,21 +44,21 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login/login.html" th:href="@{/login}"><span class="glyphicon glyphicon-log-in active"></span> Login</a></li>
-
+                <li><a href="/login/login.html"  th:href="@{/login}"><span class="glyphicon glyphicon-log-in"  ></span> Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid text-center" >
-    <div class="row content"  >
-        <h1>Evento</h1>
-        <p>Listagem de Eventos.</p>
-        <br>
+<div>
+    <div class="container-fluid text-center" >
+        <div class="row content"  >
+            <h1>Lista de Artigos do Sistema</h1>
+            <br>
+        </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <strong>EVENTOS</strong>
+                <strong>ARTIGOS</strong>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -66,9 +68,10 @@
                             <th>ID</th>
                             <th>Evento</th>
                             <th>Usuário</th>
-                            <th>Data Evento</th>
-                            <th>Abertura Evento</th>
-                            <th>Fechamento Evento</th>
+                            <th>Artigo</th>
+                            <th>Resumo</th>
+                            <th>Data da Submissão</th>
+                            <th>Anexo</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -76,13 +79,14 @@
                         <!--<tr th:each="post : ${posts}">
                             <td th:text="${post.id}"></td>
                             <td th:utext="${post.nome_evento}"></td>
-                            <td th:text="${post.usua_id}"></td>
-                            <td th:text="${#dates.format(post.dt_evento, 'dd/MM/yyyy')}"></td>
-                            <td th:text="${#dates.format(post.dt_iinscr, 'dd/MM/yyyy')}"></td>
-                            <td th:text="${#dates.format(post.dt_finscr, 'dd/MM/yyyy')}"></td>
+                            <td th:text="${post.nome_usua}"></td>
+                            <td th:text="${post.nome_art}"></td>
+                            <td th:text="${post.resumo_art}"></td>
+                            <td th:text="${#dates.format(post.dt_submissao, 'dd/MM/yyyy')}"></td>
+                            <td th:text="${post.anexo_art}"></td>
                             <td>
                                 <div class="btn-group pull-right">
-                                    <a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${post.id})}" >Editar</a>
+                                    <a class="btn btn-sm btn-primary" th:href="@{submissoes/deletaSubmissao/{id}(id=${post.id})}" >Deletar</a>
                                 </div>
                             </td>
                         </tr>-->
@@ -95,3 +99,6 @@
 </div>
 </body>
 </html>
+
+
+

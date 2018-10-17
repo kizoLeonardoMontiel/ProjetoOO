@@ -2,7 +2,7 @@
 <html lang="pt-br"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Portal de Eventos</title>
+    <title>Cadastro Usuário</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -24,9 +24,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index.html" th:href="@{/}" >Home</a></li>
+                <li><a href="/index.html" th:href="@{/}" >Home</a></li>
                 <li><a href="/evento/evento.html" th:href="@{/evento}">Evento</a></li>
-                <li class="dropdown"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
+                <li class="dropdown active"><a href="/usuario/usuario.html" th:href="@{/usuario}" class="dropdown-toggle"
                     data-toggle="dropdown" role="button">Usuário<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/usuario/detalheUsuario.html" th:href="@{/detalhe}">Detalhes</a></li>
@@ -49,48 +49,41 @@
     </div>
 </nav>
 
-<div class="container-fluid text-center" >
-    <div class="row content"  >
-        <h1>Evento</h1>
-        <p>Listagem de Eventos.</p>
-        <br>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <strong>EVENTOS</strong>
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-sm table-striped table-hover table-bordered">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Evento</th>
-                            <th>Usuário</th>
-                            <th>Data Evento</th>
-                            <th>Abertura Evento</th>
-                            <th>Fechamento Evento</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <!--<tr th:each="post : ${posts}">
-                            <td th:text="${post.id}"></td>
-                            <td th:utext="${post.nome_evento}"></td>
-                            <td th:text="${post.usua_id}"></td>
-                            <td th:text="${#dates.format(post.dt_evento, 'dd/MM/yyyy')}"></td>
-                            <td th:text="${#dates.format(post.dt_iinscr, 'dd/MM/yyyy')}"></td>
-                            <td th:text="${#dates.format(post.dt_finscr, 'dd/MM/yyyy')}"></td>
-                            <td>
-                                <div class="btn-group pull-right">
-                                    <a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${post.id})}" >Editar</a>
-                                </div>
-                            </td>
-                        </tr>-->
-                        </tbody>
-                    </table>
+<div class="container text-center" >
+    <div class="container-fluid">
+        <form role="Form" method="POST"  th:object="${user}" th:action="@{/cadastro/{id} (id=${user.id})}" accept-charset="UTF-8">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <label>CADASTRO DO USUÁRIO</label>
                 </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="nome"  th:field="*{nome}" placeholder="Nome" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="email" th:field="*{email}"placeholder="E-mail" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="text" name="username" th:field="*{username}" placeholder="Nome de usuário" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <input type="password" name="password" th:field="*{password}" placeholder="Senha" class="form-control" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-default">Alterar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 </body>
